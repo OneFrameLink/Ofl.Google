@@ -2,7 +2,7 @@
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using Ofl.Core.Net.Http;
+using Ofl.Net.Http;
 
 namespace Ofl.Google
 {
@@ -13,10 +13,7 @@ namespace Ofl.Google
         internal GoogleApiMessageHandler(IApiKeyProvider apiKeyProvider)
         {
             // Validate parameters.
-            if (apiKeyProvider == null) throw new ArgumentNullException(nameof(apiKeyProvider));
-
-            // Assign values.
-            _apiKeyProvider = apiKeyProvider;
+            _apiKeyProvider = apiKeyProvider ?? throw new ArgumentNullException(nameof(apiKeyProvider));
 
             // Set compression.
             this.SetCompression();

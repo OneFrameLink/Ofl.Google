@@ -2,7 +2,8 @@
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using Ofl.Core.Net.Http;
+using Ofl.Net.Http;
+using Ofl.Net.Http.ApiClient.Json;
 
 namespace Ofl.Google
 {
@@ -13,10 +14,7 @@ namespace Ofl.Google
         protected GoogleApiClient(IApiKeyProvider apiKeyProvider, IHttpClientFactory httpClientFactory) : base(httpClientFactory)
         {
             // Validate parameters.
-            if (apiKeyProvider == null) throw new ArgumentNullException(nameof(apiKeyProvider));
-
-            // Assign values.
-            ApiKeyProvider = apiKeyProvider;
+            ApiKeyProvider = apiKeyProvider ?? throw new ArgumentNullException(nameof(apiKeyProvider));
         }
 
         #endregion
