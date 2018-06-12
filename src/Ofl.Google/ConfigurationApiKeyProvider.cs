@@ -9,20 +9,18 @@ namespace Ofl.Google
     {
         #region Constructor
 
-        public ConfigurationApiKeyProvider(IOptions<ApiKeyConfiguration> apiKeyConfiguration)
+        public ConfigurationApiKeyProvider(IOptions<ApiKeyConfiguration> apiKeyConfigurationOptions)
         {
             // Validate parameters.
-            if (string.IsNullOrWhiteSpace(apiKeyConfiguration?.Value?.ApiKey)) throw new ArgumentNullException(nameof(apiKeyConfiguration));
-
-            // Assign values.
-            _apiKeyConfiguration = apiKeyConfiguration.Value;
+            _apiKeyConfigurationOptions = apiKeyConfigurationOptions ??
+                throw new ArgumentNullException(nameof(apiKeyConfigurationOptions));
         }
 
         #endregion
 
         #region Instance, read-only state.
 
-        private readonly ApiKeyConfiguration _apiKeyConfiguration;
+        private readonly IOptions<ApiKeyConfiguration> _apiKeyConfigurationOptions;
 
         #endregion
 
@@ -31,7 +29,7 @@ namespace Ofl.Google
         public Task<string> GetApiKeyAsync(CancellationToken cancellationToken)
         {
             // Return the configuration.
-            return Task.FromResult(_apiKeyConfiguration.ApiKey);
+            return Task.FromResult(_apiKeyConfigurationOptions.Value.ApiKey);
         }
 
         #endregion

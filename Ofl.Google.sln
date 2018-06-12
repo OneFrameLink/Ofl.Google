@@ -10,6 +10,18 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "test", "test", "{B839F27B-9
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Ofl.Google.Tests", "test\Ofl.Google.Tests\Ofl.Google.Tests.csproj", "{E10BA7C6-B7CC-49D2-B9CB-5D175DE85086}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "solution-level items", "solution-level items", "{071C3FD1-61DD-4EF7-8491-6C17494259A4}"
+	ProjectSection(SolutionItems) = preProject
+		.gitattributes = .gitattributes
+		.gitignore = .gitignore
+		.gitmodules = .gitmodules
+		appveyor.yml = appveyor.yml
+		directory.build.props = directory.build.props
+		LICENSE = LICENSE
+		Ofl.Google.sln.DotSettings = Ofl.Google.sln.DotSettings
+		README.md = README.md
+	EndProjectSection
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -31,5 +43,8 @@ Global
 	GlobalSection(NestedProjects) = preSolution
 		{1EA78970-A3A6-421C-9EB2-DD121E943990} = {1D84BCDC-74BC-4BDB-932B-E5AF57338C4A}
 		{E10BA7C6-B7CC-49D2-B9CB-5D175DE85086} = {B839F27B-9419-40C8-A42A-3EB275C2500C}
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {9F11ABD7-21AB-4082-B369-598F3CC22B46}
 	EndGlobalSection
 EndGlobal
