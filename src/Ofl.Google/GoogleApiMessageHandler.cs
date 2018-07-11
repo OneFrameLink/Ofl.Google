@@ -10,7 +10,8 @@ namespace Ofl.Google
     {
         #region Constructor.
 
-        internal GoogleApiMessageHandler(IApiKeyProvider apiKeyProvider)
+        internal GoogleApiMessageHandler(
+            IApiKeyProvider apiKeyProvider)
         {
             // Validate parameters.
             _apiKeyProvider = apiKeyProvider ?? throw new ArgumentNullException(nameof(apiKeyProvider));
@@ -37,6 +38,7 @@ namespace Ofl.Google
                 ConfigureAwait(false);
 
             // Call the base.
+            // TODO: Should the original request URI be restored?
             return await base.SendAsync(request, cancellationToken).ConfigureAwait(false);
         }
     }

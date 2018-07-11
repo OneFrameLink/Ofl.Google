@@ -2,7 +2,6 @@
 using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
-using Ofl.Net.Http;
 using Ofl.Net.Http.ApiClient.Json;
 
 namespace Ofl.Google
