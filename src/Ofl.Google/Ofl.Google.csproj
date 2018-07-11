@@ -13,9 +13,10 @@
 
   <ItemGroup>
     <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="2.1.1" />
+    <PackageReference Include="Microsoft.Extensions.Http" Version="2.1.1" />
     <PackageReference Include="Microsoft.Extensions.Options" Version="2.1.1" />
     <PackageReference Include="Ofl.Google.Abstractions" Version="2.0.3" />
-    <PackageReference Include="Ofl.Net.Http.ApiClient.Json" Version="2.0.5" />
+    <PackageReference Include="Ofl.Net.Http" Version="2.0.6" />
   </ItemGroup>
 
   <ItemGroup>
