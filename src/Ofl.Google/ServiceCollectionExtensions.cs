@@ -16,6 +16,9 @@ namespace Ofl.Google
             // Configure the options.
             sc = sc.Configure<ApiKeyConfiguration>(apiKeyConfiguration.Bind);
 
+            // Configure the api key provider.
+            sc = sc.AddTransient<IApiKeyProvider, ConfigurationApiKeyProvider>();
+
             // Return the service configuration.
             return sc;
         }
