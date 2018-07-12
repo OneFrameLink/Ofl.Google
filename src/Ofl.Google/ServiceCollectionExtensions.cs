@@ -19,6 +19,9 @@ namespace Ofl.Google
             // Configure the api key provider.
             sc = sc.AddTransient<IApiKeyProvider, ConfigurationApiKeyProvider>();
 
+            // Add the api message handler.
+            sc = sc.AddTransient<GoogleApiMessageHandler>();
+
             // Return the service configuration.
             return sc;
         }

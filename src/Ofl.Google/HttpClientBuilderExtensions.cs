@@ -11,7 +11,8 @@ namespace Ofl.Google
             if (httpClientBuilder == null) throw new ArgumentNullException(nameof(httpClientBuilder));
 
             // Add the handler.
-            httpClientBuilder = httpClientBuilder.ConfigurePrimaryHttpMessageHandler<GoogleApiMessageHandler>();
+            httpClientBuilder = httpClientBuilder
+                .ConfigurePrimaryHttpMessageHandler<GoogleApiMessageHandler>();
 
             // Return.
             return httpClientBuilder;
