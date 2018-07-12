@@ -6,7 +6,7 @@ using Ofl.Net.Http;
 
 namespace Ofl.Google
 {
-    internal class GoogleApiMessageHandler : HttpClientHandler
+    public class GoogleApiMessageHandler : HttpClientHandler
     {
         #region Constructor.
 
