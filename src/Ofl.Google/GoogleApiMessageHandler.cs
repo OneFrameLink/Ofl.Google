@@ -10,7 +10,7 @@ namespace Ofl.Google
     {
         #region Constructor.
 
-        internal GoogleApiMessageHandler(
+        public GoogleApiMessageHandler(
             IApiKeyProvider apiKeyProvider)
         {
             // Validate parameters.
