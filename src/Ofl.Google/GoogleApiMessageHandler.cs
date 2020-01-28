@@ -11,7 +11,8 @@ namespace Ofl.Google
         #region Constructor.
 
         public GoogleApiMessageHandler(
-            IApiKeyProvider apiKeyProvider)
+            IApiKeyProvider apiKeyProvider
+        )
         {
             // Validate parameters.
             _apiKeyProvider = apiKeyProvider ?? throw new ArgumentNullException(nameof(apiKeyProvider));
@@ -28,18 +29,24 @@ namespace Ofl.Google
 
         #endregion
 
-        protected override async Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, CancellationToken cancellationToken)
+        protected override async Task<HttpResponseMessage> SendAsync(
+            HttpRequestMessage request, 
+            CancellationToken cancellationToken
+        )
         {
             // Validate parameters.
             if (request == null) throw new ArgumentNullException(nameof(request));
 
             // Add the key to the URL.
-            request.RequestUri = await _apiKeyProvider.AddKeyToQueryStringAsync(request.RequestUri, cancellationToken).
-                ConfigureAwait(false);
+            request.RequestUri = await _apiKeyProvider
+                .AddKeyToQueryStringAsync(request.RequestUri, cancellationToken)
+                .ConfigureAwait(false);
 
             // Call the base.
             // TODO: Should the original request URI be restored?
-            return await base.SendAsync(request, cancellationToken).ConfigureAwait(false);
+            return await base
+                .SendAsync(request, cancellationToken)
+                .ConfigureAwait(false);
         }
     }
 }

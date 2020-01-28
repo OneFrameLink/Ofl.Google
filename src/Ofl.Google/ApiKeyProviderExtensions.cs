@@ -7,7 +7,9 @@ namespace Ofl.Google
 {
     public static class ApiKeyProviderExtensions
     {
-        public static async Task<string> AddKeyToQueryStringAsync(this IApiKeyProvider apiKeyProvider, string url,
+        public static async Task<string> AddKeyToQueryStringAsync(
+            this IApiKeyProvider apiKeyProvider, 
+            string url,
             CancellationToken cancellationToken)
         {
             // Validate parameters.
@@ -18,13 +20,17 @@ namespace Ofl.Google
             const string name = "key";
 
             // Get the value.
-            string value = await apiKeyProvider.GetApiKeyAsync(cancellationToken).ConfigureAwait(false);
+            string value = await apiKeyProvider
+                .GetApiKeyAsync(cancellationToken)
+                .ConfigureAwait(false);
 
             // Append and return.
             return QueryHelpers.AddQueryString(url, name, value);
         }
 
-        public static async Task<Uri> AddKeyToQueryStringAsync(this IApiKeyProvider apiKeyProvider, Uri url,
+        public static async Task<Uri> AddKeyToQueryStringAsync(
+            this IApiKeyProvider apiKeyProvider, 
+            Uri url,
             CancellationToken cancellationToken)
         {
             // Validate parameters.

@@ -9,7 +9,9 @@ namespace Ofl.Google
     {
         #region Constructor
 
-        public ConfigurationApiKeyProvider(IOptions<ApiKeyConfiguration> apiKeyConfigurationOptions)
+        public ConfigurationApiKeyProvider(
+            IOptions<ApiKeyConfiguration> apiKeyConfigurationOptions
+        )
         {
             // Validate parameters.
             _apiKeyConfigurationOptions = apiKeyConfigurationOptions ??
@@ -28,8 +30,17 @@ namespace Ofl.Google
 
         public Task<string> GetApiKeyAsync(CancellationToken cancellationToken)
         {
-            // Return the configuration.
-            return Task.FromResult(_apiKeyConfigurationOptions.Value.ApiKey);
+            // Get the key.
+            string? key = _apiKeyConfigurationOptions.Value.ApiKey;
+
+            // If it is null, throw.
+            if (string.IsNullOrWhiteSpace(key))
+                throw new InvalidOperationException(
+                    $"The {nameof(ConfigurationApiKeyProvider)} could not find an API key value in configuration."
+                );
+
+            // Return the string.
+            return Task.FromResult(key);
         }
 
         #endregion

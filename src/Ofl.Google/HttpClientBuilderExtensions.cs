@@ -5,7 +5,9 @@ namespace Ofl.Google
 {
     public static class HttpClientBuilderExtensions
     {
-        public static IHttpClientBuilder ConfigureGoogleApiKeyProvider(this IHttpClientBuilder httpClientBuilder)
+        public static IHttpClientBuilder ConfigureGoogleApiKeyProvider(
+            this IHttpClientBuilder httpClientBuilder
+        )
         {
             // Validate parameters.
             if (httpClientBuilder == null) throw new ArgumentNullException(nameof(httpClientBuilder));
